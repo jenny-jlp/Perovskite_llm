@@ -1,0 +1,30 @@
+# Python 3.10 is recommended.
+# For NVIDIA RTX A6000 on Linux, install CUDA 12.1 PyTorch wheels from the
+# PyTorch index below. The wheel bundles the CUDA runtime; the server still
+# needs a compatible NVIDIA driver.
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# GPU / QLoRA training stack
+torch==2.5.1+cu121
+transformers==4.46.3
+accelerate==1.1.1
+peft==0.13.2
+bitsandbytes==0.44.1
+datasets==3.1.0
+trl==0.12.1
+safetensors==0.4.5
+
+# Tokenization / Hugging Face utilities
+sentencepiece==0.2.0
+protobuf==5.28.3
+huggingface-hub==0.26.2
+
+# Data processing and download utilities
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.14.1
+requests==2.32.3
+tqdm==4.67.1
+
+# Optional local training logs if report_to is changed to "tensorboard"
+tensorboard==2.18.0
