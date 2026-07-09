@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+
+data/
+output/
+
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.pdf
+
+.cache/
+.env
+.vscode/
