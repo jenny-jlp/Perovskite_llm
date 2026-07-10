@@ -11,11 +11,14 @@ from transformers import (
     DataCollatorForSeq2Seq
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from platform_mps import install_mps_signal_handler
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(line_buffering=True)
 
 def train():
+    install_mps_signal_handler()
+
     # 1. Configuration
     model_id = "Qwen/Qwen2.5-3B-Instruct"  # You can also change this to "Qwen/Qwen2.5-7B-Instruct"
     train_data_path = "./data/processed/perovskite_llm_train.jsonl"

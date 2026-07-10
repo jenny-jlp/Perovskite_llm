@@ -2,6 +2,7 @@ import os
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
+from platform_mps import install_mps_signal_handler
 
 def load_inference_model(base_model_id, lora_dir):
     """
@@ -60,6 +61,8 @@ def predict_performance(model, tokenizer, device, recipe):
     return response
 
 if __name__ == "__main__":
+    install_mps_signal_handler()
+
     base_model = "Qwen/Qwen2.5-3B-Instruct"
     lora_path = "./output/perovskite_qwen_lora"
     
