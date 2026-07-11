@@ -20,7 +20,7 @@ def train():
     install_mps_signal_handler()
 
     # 1. Configuration
-    model_id = "Qwen/Qwen2.5-3B-Instruct"  # You can also change this to "Qwen/Qwen2.5-7B-Instruct"
+    model_id = os.environ.get("BASE_MODEL_ID", "Qwen/Qwen2.5-3B-Instruct")
     train_data_path = "./data/processed/perovskite_llm_train.jsonl"
     test_data_path = "./data/processed/perovskite_llm_test.jsonl"
     output_dir = "./output/perovskite_qwen_lora"

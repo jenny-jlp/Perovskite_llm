@@ -63,8 +63,8 @@ def predict_performance(model, tokenizer, device, recipe):
 if __name__ == "__main__":
     install_mps_signal_handler()
 
-    base_model = "Qwen/Qwen2.5-3B-Instruct"
-    lora_path = "./output/perovskite_qwen_lora"
+    base_model = os.environ.get("BASE_MODEL_ID", "Qwen/Qwen2.5-3B-Instruct")
+    lora_path = os.environ.get("LORA_DIR", "./output/perovskite_qwen_lora")
     
     if not os.path.exists(lora_path):
         print(f"Error: LoRA adapter directory '{lora_path}' does not exist.")
